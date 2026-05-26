@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Nika Tsulaia | IT Specialist",
     description: "IT-специалист и инженер по внедрению цифровых решений",
     type: "website",
-    locale: "ru_RU",
+    locale: "ka_GE",
   },
 };
 
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ka" suppressHydrationWarning>
       <body className="font-sans antialiased">
         {children}
       </body>

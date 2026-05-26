@@ -1,7 +1,16 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react';
 import { translations, type Language, type Translations } from '@/i18n/translations';
+
+const STORAGE_KEY = 'nika-portfolio-lang';
+
+function readStoredLanguage(): Language {
+  if (typeof window === 'undefined') return 'ka';
+  const stored = window.localStorage.getItem(STORAGE_KEY);
+  if (stored === 'ru' || stored === 'ka' || stored === 'en') return stored;
+  return 'ka';
+}
 
 interface LanguageContextType {
   lang: Language;
@@ -12,11 +21,18 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Language>('ru');
+  const [lang, setLangState] = useState<Language>('ka');
+
+  useEffect(() => {
+    const stored = readStoredLanguage();
+    setLangState(stored);
+    document.documentElement.lang = stored;
+  }, []);
 
   const setLang = useCallback((newLang: Language) => {
     setLangState(newLang);
     document.documentElement.lang = newLang;
+    window.localStorage.setItem(STORAGE_KEY, newLang);
   }, []);
 
   const t = translations[lang];

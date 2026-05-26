@@ -1,23 +1,53 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle, Send } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { AnimatedSection, AnimatedFadeIn } from "./AnimatedSection";
 import Image from "next/image";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  WHATSAPP_URL,
+  TELEGRAM_URL,
+  FACEBOOK_MESSENGER_URL,
+} from "@/lib/contactLinks";
 
 export function ContactSection() {
   const { t } = useLanguage();
 
   const contactItems = [
-    { icon: Mail, label: t.contact.emailLabel, value: t.contact.email, href: `mailto:${t.contact.email}` },
-    { icon: Phone, label: t.contact.phoneLabel, value: t.contact.phone, href: `https://wa.me/${t.contact.phone.replace(/\D/g, "")}` },
+    { icon: Mail, label: t.contact.emailLabel, value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
+    { icon: Phone, label: t.contact.phoneLabel, value: CONTACT_PHONE, href: WHATSAPP_URL },
     { icon: MapPin, label: t.contact.locationLabel, value: t.contact.location, href: null },
   ];
 
+  const messengerButtons = [
+    {
+      href: WHATSAPP_URL,
+      label: t.contact.btnWhatsApp,
+      className:
+        "gradient-primary text-bg shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40",
+      icon: MessageCircle,
+    },
+    {
+      href: TELEGRAM_URL,
+      label: t.contact.btnTelegram,
+      className:
+        "bg-[#229ED9] text-white shadow-lg shadow-[#229ED9]/30 hover:shadow-xl hover:shadow-[#229ED9]/40",
+      icon: Send,
+    },
+    {
+      href: FACEBOOK_MESSENGER_URL,
+      label: t.contact.btnMessenger,
+      className:
+        "bg-[#0084FF] text-white shadow-lg shadow-[#0084FF]/30 hover:shadow-xl hover:shadow-[#0084FF]/40",
+      icon: MessageCircle,
+    },
+  ] as const;
+
   return (
     <section id="contact" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-bg overflow-hidden">
-      {/* Top gradient line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
 
       <div className="max-w-7xl mx-auto">
@@ -90,17 +120,22 @@ export function ContactSection() {
                   <MapPin size={14} className="text-primary" />
                   <span>{t.contact.location}</span>
                 </div>
-                <motion.a
-                  href={`https://wa.me/${t.contact.phone.replace(/\D/g, "")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 gradient-primary text-bg font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-shadow"
-                >
-                  <MessageCircle size={18} />
-                  {t.contact.btnText}
-                </motion.a>
+                <div className="flex flex-col gap-3">
+                  {messengerButtons.map(({ href, label, className, icon: Icon }) => (
+                    <motion.a
+                      key={href}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.02, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      className={`inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl transition-shadow ${className}`}
+                    >
+                      <Icon size={18} />
+                      {label}
+                    </motion.a>
+                  ))}
+                </div>
               </div>
             </div>
           </AnimatedFadeIn>
