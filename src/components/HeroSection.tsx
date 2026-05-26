@@ -5,6 +5,7 @@ import { MapPin, Phone, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useMousePosition } from "@/hooks/useMousePosition";
 import Image from "next/image";
+import { CvDownloadButton } from "./CvDownloadButton";
 
 export function HeroSection() {
   const { t } = useLanguage();
@@ -70,6 +71,7 @@ export function HeroSection() {
               {t.hero.btnProjects}
               <ChevronRight size={18} />
             </motion.button>
+            <CvDownloadButton />
           </div>
         </motion.div>
 

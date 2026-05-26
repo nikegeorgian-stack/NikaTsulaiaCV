@@ -157,6 +157,9 @@ export const translations = {
         { flag: '🇬🇧', name: 'Английский', level: 'Базовый' },
       ],
     },
+    cv: {
+      download: 'Скачать резюме (PDF)',
+    },
     contact: {
       label: 'Контакты',
       title: 'Давайте свяжемся',
@@ -334,6 +337,9 @@ export const translations = {
         { flag: '🇬🇧', name: 'ინგლისური', level: 'ბაზისური' },
       ],
     },
+    cv: {
+      download: 'რეზიუმეს ჩამოტვირთვა (PDF)',
+    },
     contact: {
       label: 'კონტაქტი',
       title: 'მოდით დავუკავშირდეთ',
@@ -510,6 +516,9 @@ export const translations = {
         { flag: '🇷🇺', name: 'Russian', level: 'Fluent' },
         { flag: '🇬🇧', name: 'English', level: 'Basic' },
       ],
+    },
+    cv: {
+      download: 'Download CV (PDF)',
     },
     contact: {
       label: 'Contact',

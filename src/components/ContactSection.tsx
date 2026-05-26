@@ -5,6 +5,7 @@ import { Mail, Phone, MapPin, MessageCircle, Send } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { AnimatedSection, AnimatedFadeIn } from "./AnimatedSection";
 import Image from "next/image";
+import { CvDownloadButton } from "./CvDownloadButton";
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
@@ -135,6 +136,7 @@ export function ContactSection() {
                       {label}
                     </motion.a>
                   ))}
+                  <CvDownloadButton variant="outline" className="w-full justify-center" />
                 </div>
               </div>
             </div>
