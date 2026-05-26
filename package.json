@@ -1,0 +1,31 @@
+{
+  "name": "nika-tsulaiacv",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "generate:cv": "tsx scripts/generate-cv-pdfs.ts",
+    "build": "npm run generate:cv && next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "^4.5.1",
+    "@tailwindcss/postcss": "^4.0.0",
+    "framer-motion": "^12.0.0",
+    "lucide-react": "^0.460.0",
+    "next": "^15.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^15.2.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
