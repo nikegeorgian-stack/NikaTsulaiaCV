@@ -5,7 +5,6 @@ import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { AnimatedSection, AnimatedFadeIn } from "./AnimatedSection";
 import Image from "next/image";
-import { CvDownloadButton } from "./CvDownloadButton";
 
 export function ContactSection() {
   const { t } = useLanguage();
@@ -91,20 +90,17 @@ export function ContactSection() {
                   <MapPin size={14} className="text-primary" />
                   <span>{t.contact.location}</span>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <motion.a
-                    href={`https://wa.me/${t.contact.phone.replace(/\D/g, "")}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 gradient-primary text-bg font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-shadow"
-                  >
-                    <MessageCircle size={18} />
-                    {t.contact.btnText}
-                  </motion.a>
-                  <CvDownloadButton variant="outline" className="justify-center" />
-                </div>
+                <motion.a
+                  href={`https://wa.me/${t.contact.phone.replace(/\D/g, "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 gradient-primary text-bg font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-shadow"
+                >
+                  <MessageCircle size={18} />
+                  {t.contact.btnText}
+                </motion.a>
               </div>
             </div>
           </AnimatedFadeIn>

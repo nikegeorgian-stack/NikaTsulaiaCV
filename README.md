@@ -7,7 +7,6 @@ Portfolio and CV site for **Nika Tsulaia** — IT specialist and digital solutio
 - Next.js 15 (static export)
 - React 19, Tailwind CSS v4, Framer Motion
 - RU / KA / EN via `src/i18n/translations.ts`
-- PDF resumes generated at build time (`@react-pdf/renderer`)
 
 ## Local development
 
@@ -17,14 +16,6 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000)
-
-## CV (PDF)
-
-```bash
-npm run generate:cv
-```
-
-Files are written to `public/cv/` and included in the production build.
 
 ## Production build
 

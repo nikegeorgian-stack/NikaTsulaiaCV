@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "generate:cv": "tsx scripts/generate-cv-pdfs.ts",
-    "build": "npm run generate:cv && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
