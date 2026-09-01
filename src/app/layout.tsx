@@ -3,14 +3,14 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Nika Tsulaia | IT Specialist & Digital Solutions Engineer",
-  description: "IT-специалист и инженер по внедрению цифровых решений. 50+ гостиниц под ключ, 30+ организаций на обслуживании, 80+ офисов.",
-  keywords: ["IT specialist", "engineer", "Tbilisi", "Georgia", "networks", "CCTV", "POS systems", "automation", "photo editing", "video editing", "laptop repair", "phone repair", "hardware"],
+  description: "IT specialist and digital solutions engineer in Tbilisi. Business dashboards, web tools, product listings, visual content, networks, CCTV and POS systems.",
+  keywords: ["IT specialist", "dashboard developer", "Excel", "Google Sheets", "product listings", "photo editing", "video editing", "Tbilisi", "Georgia", "networks", "CCTV", "POS systems", "automation"],
   authors: [{ name: "Nika Tsulaia" }],
   openGraph: {
     title: "Nika Tsulaia | IT Specialist",
-    description: "IT-специалист и инженер по внедрению цифровых решений",
+    description: "Business dashboards, web tools, product listings, visual content and IT infrastructure.",
     type: "website",
-    locale: "ka_GE",
+    locale: "en_US",
   },
 };
 
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ka" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased">
         {children}
       </body>

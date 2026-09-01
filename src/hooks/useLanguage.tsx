@@ -6,10 +6,10 @@ import { translations, type Language, type Translations } from '@/i18n/translati
 const STORAGE_KEY = 'nika-portfolio-lang';
 
 function readStoredLanguage(): Language {
-  if (typeof window === 'undefined') return 'ka';
+  if (typeof window === 'undefined') return 'en';
   const stored = window.localStorage.getItem(STORAGE_KEY);
   if (stored === 'ru' || stored === 'ka' || stored === 'en') return stored;
-  return 'ka';
+  return 'en';
 }
 
 interface LanguageContextType {
@@ -21,7 +21,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Language>('ka');
+  const [lang, setLangState] = useState<Language>('en');
 
   useEffect(() => {
     const stored = readStoredLanguage();
